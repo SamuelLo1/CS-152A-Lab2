@@ -1,2 +1,4 @@
 # Ignore simulation files from tb
 *_out
+*_test
+*.vcd
