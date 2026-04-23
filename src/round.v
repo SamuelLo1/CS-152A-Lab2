@@ -1,4 +1,4 @@
-module seq_add (/*AUTOARG*/
+module round (/*AUTOARG*/
    // Outputs
    F, E,
    // Inputs
@@ -24,7 +24,7 @@ module seq_add (/*AUTOARG*/
                     E = exponent + 'b001; // increase the Exponent by 1 to compensate
                 end
             // round the first four bits up by adding 1
-            end else beging
+            end else begin
                 F = significand + 'b0001; // the Significand is incremented by 1
                 E = exponent;
             end
