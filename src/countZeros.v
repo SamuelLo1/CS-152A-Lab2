@@ -43,8 +43,14 @@ module countZeros (
                 significand = magnitude[4:1];
                 roundBit = magnitude[0];
             end
-            3'd1: significand = magnitude[3:0];
-            3'd0: significand = magnitude[3:0];
+            3'd1: begin
+                significand = magnitude[3:0];
+                roundBit = 1'b0;
+            end
+            3'd0: begin 
+                significand = magnitude[3:0];
+                roundBit = 1'b0;
+            end
             
             default: significand = 4'b0000;
         endcase
