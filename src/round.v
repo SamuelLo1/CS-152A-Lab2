@@ -1,12 +1,12 @@
 module seq_add (/*AUTOARG*/
    // Outputs
-   F, D,
+   F, E,
    // Inputs
    round_bit, significand, exponent
    );
 
     output reg [3:0] F;
-    output reg [2:0] D;
+    output reg [2:0] E;
 
     input            round_bit;
     input      [3:0] significand;
@@ -18,20 +18,20 @@ module seq_add (/*AUTOARG*/
             if (significand == 'b1111) begin // If the maximum Significand [1111] is rounded up
                 if (exponent == 'b111) begin
                     F = 'b1111;
-                    D = 'b111;
+                    E = 'b111;
                 end else begin
                     F = 'b1000; // shift right to obtain 1000
-                    D = exponent + 'b001; // increase the Exponent by 1 to compensate
+                    E = exponent + 'b001; // increase the Exponent by 1 to compensate
                 end
             // round the first four bits up by adding 1
-            end else begin
+            end else beging
                 F = significand + 'b0001; // the Significand is incremented by 1
-                D = exponent;
+                E = exponent;
             end
         // If the fifth bit following is 0, use the first four bits
         end else begin
             F = significand;
-            D = exponent;
+            E = exponent;
         end
     end
 
