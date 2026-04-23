@@ -1,7 +1,7 @@
 module fpcvt (
     input signed [10:0] signedIn,
-    output [2:0] exponent,
-    output [3:0] significand,
+    output [2:0] E,
+    output [3:0] F,
     output sign
 );
 
@@ -38,7 +38,7 @@ module fpcvt (
     );
 
     // Output assignment
-    assign exponent = exp_rounded;
-    assign significand = sig_rounded;
+    assign E = exp_rounded;
+    assign F = sig_rounded;
 
 endmodule
