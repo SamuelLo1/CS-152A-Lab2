@@ -12,7 +12,7 @@ module round (/*AUTOARG*/
     input      [3:0] significand;
     input      [2:0] exponent;
 
-    always @(*) begin
+    always @(*) begin        
         // If the fifth bit following is 1
         if (round_bit) begin
             if (significand == 'b1111) begin // If the maximum Significand [1111] is rounded up

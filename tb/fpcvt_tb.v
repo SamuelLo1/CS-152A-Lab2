@@ -1,6 +1,6 @@
 module fpcvt_tb;
 
-    reg signed [10:0] test_input;
+    reg signed [11:0] test_input;
     wire [2:0] test_E;
     wire [3:0] test_F;
     wire test_sign;
@@ -21,16 +21,16 @@ module fpcvt_tb;
                  $time, test_input, test_sign, test_E, test_F);
 
         // Test Case 1: Positive number
-        #10 test_input = 11'b00000010101; // 21 in decimal
+        #10 test_input = 12'b000000101110; // 46 in decimal
 
         // Test Case 2: Negative number
-        #10 test_input = -11'b00000010101; // -21 in decimal
+        #10 test_input = -12'b000000101110; // -46 in decimal
 
         // Test Case 3: Edge case (most negative number)
-        #10 test_input = -11'b10000000000; // -1024 in decimal
+        #10 test_input = -12'b10000000000; // -1024 in decimal
 
         // Test Case 4: Zero
-        #10 test_input = 11'b00000000000; // 0 in decimal
+        #10 test_input = 12'b00000000000; // 0 in decimal
 
         #10 $finish;
     end
