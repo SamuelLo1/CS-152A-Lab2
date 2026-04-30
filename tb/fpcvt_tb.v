@@ -6,10 +6,10 @@ module fpcvt_tb;
     wire test_sign;
 
     fpcvt uut (
-        .signedIn(test_input),
+        .D(test_input),
         .E(test_E),
         .F(test_F),
-        .sign(test_sign)
+        .S(test_sign)
     );
 
     initial begin
@@ -28,6 +28,13 @@ module fpcvt_tb;
 
         // Test Case 3: Edge case (most negative number)
         #10 test_input = -12'b10000000000; // -1024 in decimal
+
+        #10 test_input = -12'b100000000000; // -2048 in decimal
+
+        #10 test_input = 12'b011111111111; // 2047 in decimal
+
+        // 1984 in decimal 
+        #10 test_input = 12'b011111000000; 
 
         // Test Case 4: Zero
         #10 test_input = 12'b00000000000; // 0 in decimal

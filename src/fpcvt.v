@@ -1,8 +1,8 @@
 module fpcvt (
-    input signed [11:0] signedIn,
+    input signed [11:0] D,
     output [2:0] E,
     output [3:0] F,
-    output sign
+    output S
 );
 
     // Internal wires
@@ -15,8 +15,8 @@ module fpcvt (
 
     // Stage 1: Convert signed input to sign-magnitude
     signMag u_signMag (
-        .in({signedIn}),
-        .S(sign),
+        .D({D}),
+        .S(S),
         .magnitude(magnitude)
     );
 
