@@ -1,5 +1,5 @@
 module fpcvt (
-    input signed [10:0] signedIn,
+    input signed [11:0] signedIn,
     output [2:0] E,
     output [3:0] F,
     output sign
@@ -15,7 +15,7 @@ module fpcvt (
 
     // Stage 1: Convert signed input to sign-magnitude
     signMag u_signMag (
-        .in({signedIn[10], signedIn}),
+        .in({signedIn}),
         .S(sign),
         .magnitude(magnitude)
     );
