@@ -15,8 +15,8 @@ module fpcvt (
 
     // Stage 1: Convert signed input to sign-magnitude
     signMag u_signMag (
-        .signedIn(signedIn),
-        .sign(sign),
+        .in({signedIn[10], signedIn}),
+        .S(sign),
         .magnitude(magnitude)
     );
 
