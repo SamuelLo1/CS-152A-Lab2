@@ -2,3 +2,6 @@
 *_out
 *_test
 *.vcd
+
+# Ignore compiled files
+fpcvt_sim
